@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cutefish StreamShield - K.hocine Studio</title>
+    <title>StreamShield Pro — EDITED BY K.HOCINE</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -12,84 +12,167 @@
             theme: {
                 extend: {
                     colors: {
-                        darkbg: '#0b0f19',
-                        panelbg: '#111827',
-                        terminalbg: '#030712',
-                        accent: '#10b981'
+                        darkbg: '#050811',
+                        panelbg: 'rgba(13, 17, 23, 0.85)',
+                        accent: '#10b981',
+                        matrix: '#00ff66'
                     }
                 }
             }
         }
     </script>
-</head>
-<body class="bg-darkbg text-gray-100 min-h-screen flex flex-col items-center justify-center p-4 font-mono">
+    <style>
+        /* Animation d'arrière-plan Canvas Matrix */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.25;
+        }
 
-    <div class="w-full max-w-xl bg-panelbg border border-gray-800 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-md">
-        <!-- Header de la fenêtre -->
-        <div class="bg-gray-900/80 px-5 py-4 border-b border-gray-800 flex items-center justify-between">
+        /* Effet Glow / Néon pour le texte K.HOCINE */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.6), 0 0 20px rgba(16, 185, 129, 0.4), 0 0 30px rgba(16, 185, 129, 0.2);
+        }
+
+        /* Verre dépoli professionnel */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-gray-100 min-h-screen flex flex-col items-center justify-center p-4 font-mono relative overflow-hidden select-none">
+
+    <!-- Canvas pour l'effet Matrix Code Rain -->
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Conteneur principal de l'application -->
+    <div class="relative z-10 w-full max-w-xl glass-card rounded-3xl shadow-2xl overflow-hidden border border-emerald-500/20">
+        
+        <!-- Header de l'interface -->
+        <div class="bg-gray-950/80 px-6 py-4 border-b border-gray-800 flex items-center justify-between">
             <div class="flex items-center space-x-2">
                 <div class="w-3 h-3 rounded-full bg-red-500 shadow-sm shadow-red-500/50"></div>
                 <div class="w-3 h-3 rounded-full bg-yellow-500 shadow-sm shadow-yellow-500/50"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500 shadow-sm shadow-green-500/50"></div>
-                <span class="text-xs font-semibold text-gray-400 ml-3 tracking-wider">StreamShield Studio | K.hocine</span>
+                <div class="w-3 h-3 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/50"></div>
+                <span class="text-xs font-semibold text-gray-400 ml-3 tracking-widest uppercase">StreamShield Studio</span>
             </div>
-            <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded-full font-medium">ONLINE</span>
+            <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full font-bold tracking-wider">PRO V2.0</span>
         </div>
 
-        <!-- Corps de l'application -->
-        <div class="p-6 space-y-6">
+        <!-- Corps de la page -->
+        <div class="p-8 space-y-8 text-center">
             
-            <!-- Zone de Glisser-Déposer (Dropzone) -->
-            <div id="dropzone" class="border-2 border-dashed border-gray-700 hover:border-accent rounded-xl p-8 text-center cursor-pointer transition-all bg-gray-900/40 group">
+            <!-- Grand Titre de Signature K.HOCINE -->
+            <div class="space-y-1">
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-wider text-white glow-text uppercase">
+                    EDITED BY K.HOCINE
+                </h1>
+                <p class="text-xs text-emerald-400/80 font-medium tracking-widest uppercase">
+                    HDR & Dolby Vision Lossless Processing Engine
+                </p>
+            </div>
+
+            <!-- Zone de Dépôt de Fichier (Dropzone) -->
+            <div id="dropzone" class="border-2 border-dashed border-gray-700 hover:border-emerald-500 rounded-2xl p-8 text-center cursor-pointer transition-all duration-300 bg-gray-900/50 hover:bg-emerald-950/10 group relative">
                 <input type="file" id="video-file" name="video" accept="video/mp4" class="hidden">
-                <div class="space-y-3 pointer-events-none">
-                    <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+                <div class="space-y-4 pointer-events-none">
+                    <div class="w-16 h-16 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300 border border-emerald-500/20 shadow-lg shadow-emerald-500/10">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                        </svg>
                     </div>
                     <div>
-                        <p class="text-sm font-medium text-gray-200">Glissez votre vidéo MP4 ici ou <span class="text-accent underline underline-offset-4">parcourez</span></p>
-                        <p id="file-name" class="text-xs text-gray-500 mt-1">Format accepté : MP4 (Développé par K.hocine)</p>
+                        <p class="text-base font-semibold text-gray-200">Glissez votre vidéo MP4 ici</p>
+                        <p class="text-xs text-gray-400 mt-1">ou <span class="text-emerald-400 font-bold underline underline-offset-4">cliquez pour parcourir</span></p>
+                        <p id="file-name" class="text-xs text-emerald-400 mt-3 font-semibold"></p>
                     </div>
                 </div>
             </div>
 
-            <!-- Bouton d'action -->
-            <button id="submit-btn" class="w-full bg-accent hover:bg-emerald-600 text-gray-950 font-bold py-3.5 px-6 rounded-xl transition-all shadow-lg shadow-emerald-900/20 flex items-center justify-center space-x-2 hidden cursor-pointer">
-                <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
-                <span>Lancer le traitement StreamShield</span>
+            <!-- Bouton de lancement -->
+            <button id="submit-btn" class="w-full bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-extrabold py-4 px-6 rounded-2xl transition-all duration-300 shadow-lg shadow-emerald-500/20 flex items-center justify-center space-x-2 hidden cursor-pointer uppercase tracking-wider text-sm">
+                <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+                <span>Démarrer le traitement</span>
             </button>
 
-            <!-- Écran Terminal de Logs (Caché au début) -->
-            <div id="terminal-container" class="hidden space-y-3">
-                <div class="flex justify-between items-center text-xs text-gray-400 px-1">
-                    <span class="flex items-center space-x-1.5">
-                        <span class="w-2 h-2 rounded-full bg-accent animate-ping"></span>
-                        <span>Console K.hocine Engine</span>
-                    </span>
-                    <span id="progress-text" class="text-accent font-bold">Traitement...</span>
+            <!-- Section de Progression avec Pourcentage (Remplaçant du Terminal) -->
+            <div id="progress-container" class="hidden space-y-3 pt-2">
+                <div class="flex justify-between items-center text-xs font-bold text-gray-300">
+                    <span id="status-text" class="text-emerald-400 animate-pulse">Traitement en cours...</span>
+                    <span id="percentage-text" class="text-emerald-400 text-lg font-extrabold">0%</span>
                 </div>
-                <div id="terminal-box" class="bg-terminalbg border border-gray-800 rounded-xl p-4 h-48 overflow-y-auto text-xs font-mono text-emerald-400 shadow-inner space-y-1">
-                    <!-- Les logs s'affichent ici -->
+                <!-- Barre de progression -->
+                <div class="w-full bg-gray-900 rounded-full h-3.5 border border-gray-800 p-0.5 overflow-hidden shadow-inner">
+                    <div id="progress-bar" class="bg-gradient-to-r from-emerald-600 to-emerald-400 h-full rounded-full transition-all duration-200 ease-out shadow-lg shadow-emerald-500/50" style="width: 0%"></div>
                 </div>
             </div>
 
         </div>
-        
-        <!-- Pied de page avec signature -->
-        <div class="bg-gray-950 px-6 py-3 border-t border-gray-800/60 text-center">
-            <p class="text-[11px] text-gray-500">Propulsé par StreamShield Engine &bull; Conçu par <span class="text-accent font-semibold">K.hocine</span></p>
+
+        <!-- Pied de page -->
+        <div class="bg-gray-950/90 px-6 py-4 border-t border-gray-800/80 text-center">
+            <p class="text-xs text-gray-400">
+                StreamShield System &bull; <span class="text-emerald-400 font-bold tracking-wider">EDITED BY K.HOCINE</span>
+            </p>
         </div>
     </div>
 
-    <!-- Script JavaScript Moderne -->
+    <!-- Script de logique & Animations -->
     <script>
+        // --- 1. Animation Matrix Code Rain sur Canvas ---
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const matrixChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ010101KHOCINE';
+        const fontSize = 14;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = Array(columns).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(5, 8, 17, 0.08)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff66';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = matrixChars.charAt(Math.floor(Math.random() * matrixChars.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 33);
+
+        // --- 2. Logique de chargement & Barre de progression ---
         const dropzone = document.getElementById('dropzone');
         const fileInput = document.getElementById('video-file');
         const fileName = document.getElementById('file-name');
         const submitBtn = document.getElementById('submit-btn');
-        const terminalContainer = document.getElementById('terminal-container');
-        const terminalBox = document.getElementById('terminal-box');
-        const progressText = document.getElementById('progress-text');
+        const progressContainer = document.getElementById('progress-container');
+        const progressBar = document.getElementById('progress-bar');
+        const percentageText = document.getElementById('percentage-text');
+        const statusText = document.getElementById('status-text');
 
         let selectedFile = null;
 
@@ -98,50 +181,51 @@
         fileInput.addEventListener('change', (e) => {
             if (e.target.files.length > 0) {
                 selectedFile = e.target.files[0];
-                fileName.textContent = `Sélectionné : ${selectedFile.name} (${(selectedFile.size / (1024*1024)).toFixed(2)} MB)`;
-                fileName.classList.add('text-accent');
+                fileName.textContent = `Fichier prêt : ${selectedFile.name} (${(selectedFile.size / (1024*1024)).toFixed(2)} MB)`;
                 submitBtn.classList.remove('hidden');
             }
         });
 
-        dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('border-accent'); });
-        dropzone.addEventListener('dragleave', () => { dropzone.classList.remove('border-accent'); });
+        dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('border-emerald-500'); });
+        dropzone.addEventListener('dragleave', () => { dropzone.classList.remove('border-emerald-500'); });
         dropzone.addEventListener('drop', (e) => {
             e.preventDefault();
-            dropzone.classList.remove('border-accent');
+            dropzone.classList.remove('border-emerald-500');
             if (e.dataTransfer.files.length > 0) {
                 selectedFile = e.dataTransfer.files[0];
                 fileInput.files = e.dataTransfer.files;
-                fileName.textContent = `Sélectionné : ${selectedFile.name} (${(selectedFile.size / (1024*1024)).toFixed(2)} MB)`;
-                fileName.classList.add('text-accent');
+                fileName.textContent = `Fichier prêt : ${selectedFile.name} (${(selectedFile.size / (1024*1024)).toFixed(2)} MB)`;
                 submitBtn.classList.remove('hidden');
             }
         });
-
-        async function addLog(text, colorClass = "text-emerald-400") {
-            const div = document.createElement('div');
-            div.className = colorClass;
-            div.textContent = text;
-            terminalBox.appendChild(div);
-            terminalBox.scrollTop = terminalBox.scrollHeight;
-            await new Promise(r => setTimeout(r, 120));
-        }
 
         submitBtn.addEventListener('click', async () => {
             if (!selectedFile) return;
 
             submitBtn.classList.add('hidden');
-            dropzone.classList.add('pointer-events-none', 'opacity-50');
-            terminalContainer.classList.remove('hidden');
-            terminalBox.innerHTML = '';
+            dropzone.classList.add('pointer-events-none', 'opacity-40');
+            progressContainer.classList.remove('hidden');
 
-            await addLog(`=== K.hocine Studio — Initializing ===`, "text-gray-400");
-            await addLog(`  File : ${selectedFile.name} (${(selectedFile.size / (1024*1024)).toFixed(2)} MB)`, "text-gray-300");
-            await addLog(`  method : FISH (K.hocine Edition)`, "text-gray-300");
-            await addLog(`  Compress : OFF`, "text-gray-300");
-            await addLog(`====================`, "text-gray-400");
-            await addLog(`[StreamShield K.hocine] Initializing server-side stream multiplexing...`);
-            await addLog(`[FFmpeg] Loading binary core & generating secondary audio stream...`);
+            // Simulation de la progression fluide en pourcentage (%)
+            let currentPercent = 0;
+            percentageText.textContent = "0%";
+            progressBar.style.width = "0%";
+            statusText.textContent = "Téléversement de la vidéo...";
+
+            const percentInterval = setInterval(() => {
+                if (currentPercent < 88) {
+                    currentPercent += Math.floor(Math.random() * 5) + 1;
+                    if (currentPercent > 88) currentPercent = 88;
+                    percentageText.textContent = `${currentPercent}%`;
+                    progressBar.style.width = `${currentPercent}%`;
+
+                    if (currentPercent > 40 && currentPercent < 75) {
+                        statusText.textContent = "Multiplexage des flux & Métadonnées...";
+                    } else if (currentPercent >= 75) {
+                        statusText.textContent = "Finalisation du conteneur HDR...";
+                    }
+                }
+            }, 250);
 
             const formData = new FormData();
             formData.append('video', selectedFile);
@@ -150,9 +234,11 @@
                 const response = await fetch('/process', { method: 'POST', body: formData });
                 if (!response.ok) throw new Error('Erreur de traitement serveur');
 
-                await addLog(`[Success] Metadata injection & multi-stream completed!`);
-                await addLog(`[Download] Preparing file for download...`, "text-yellow-400");
-                progressText.textContent = "Téléchargement...";
+                clearInterval(percentInterval);
+                percentageText.textContent = "100%";
+                progressBar.style.width = "100%";
+                statusText.textContent = "Traitement terminé !";
+                statusText.className = "text-emerald-400 font-bold";
 
                 const blob = await response.blob();
                 const url = window.URL.createObjectURL(blob);
@@ -163,15 +249,13 @@
                 a.click();
                 a.remove();
 
-                progressText.textContent = "Terminé avec succès !";
-                progressText.className = "text-emerald-400 font-bold";
-
-                await addLog(`=> Process Completed Successfully! Output: ${a.download}`, "text-accent font-bold");
-
             } catch (err) {
-                await addLog(`[Erreur critique] : ${err.message}`, "text-red-400");
-                progressText.textContent = "Échec du traitement";
-                progressText.className = "text-red-400 font-bold";
+                clearInterval(percentInterval);
+                statusText.textContent = "Échec du traitement";
+                statusText.className = "text-red-400 font-bold";
+                percentageText.textContent = "Error";
+                percentageText.className = "text-red-400 text-lg font-extrabold";
+                progressBar.classList.add("bg-red-500");
             }
         });
     </script>
