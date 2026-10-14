@@ -18,24 +18,22 @@ app.post('/process', upload.single('video'), (req, res) => {
 
     if (!fs.existsSync('outputs')) fs.mkdirSync('outputs');
 
-    // Chemin temporaire pour le flux de silence secondaire
     const silencePath = path.join(__dirname, 'uploads', `silence_${Date.now()}.aac`);
 
-    // Étape 1 : Créer un flux audio de silence d'une seconde
+    // Étape 1 : Créer le fichier audio silencieux
     const createSilenceCmd = `ffmpeg -f lavfi -i anullsrc=r=44100:cl=stereo -t 1 -c:a aac "${silencePath}"`;
 
     exec(createSilenceCmd, (err) => {
         if (err) {
             console.error(err);
             if (fs.existsSync(inputPath)) fs.unlinkSync(inputPath);
-            return res.status(500).send('Erreur génération audio secondaire');
+            return res.status(500).send('Erreur génération audio');
         }
 
-        // Étape 2 : Assembler la vidéo, l'audio principal, le flux secondaire et injecter les métadonnées
-        const ffmpegCmd = `ffmpeg -i "${inputPath}" -i "${silencePath}" -map 0:v -map 0:a -map 1:a -c:v copy -c:a aac -metadata:s:a:1 title="S" -metadata:s:a:1 language="eng" -metadata description='[{"creationDate":"2026-10-11T19:09:31+0100","make":"Android","videoIndex":1,"userSystem":"13","appRecord":"1","MD5":"","videoDevice":"","system":"13","userDevice":"M2101K6G","deviceResolution":[],"importPath":"","videoResolution":{"width":720,"height":1280},"videoDuration":8275,"isRecord":1,"isCropped":0,"sourceAppID":1233}]' -metadata copyright="4bc4446b5940dcf47e7e4eb70c78696f" "${outputPath}"`;
+        // Étape 2 : Mappage multi-flux Video (0:v + 0:v) et Audio (0:a + 1:a + 1:a)
+        const ffmpegCmd = `ffmpeg -i "${inputPath}" -i "${silencePath}" -map 0:v -map 0:v -map 0:a -map 1:a -map 1:a -c:v copy -c:a aac -metadata title="Edited by K.hocine" -metadata artist="K.hocine" -metadata:s:v:0 title="Primary Video Track" -metadata:s:v:1 title="Secondary Video Shield" -metadata:s:a:1 title="S1" -metadata:s:a:1 language="eng" -metadata:s:a:2 title="S2" -metadata:s:a:2 language="eng" -metadata description='[{"creationDate":"2026-10-14T03:25:00+0100","make":"Android","videoIndex":1,"userSystem":"14","appRecord":"1","MD5":"","videoDevice":"","system":"14","userDevice":"M2101K6G","deviceResolution":[],"importPath":"","videoResolution":{"width":720,"height":1280},"videoDuration":8275,"isRecord":1,"isCropped":0,"sourceAppID":1233}]' -metadata copyright="K.hocine" "${outputPath}"`;
 
         exec(ffmpegCmd, (error) => {
-            // Nettoyage des fichiers temporaires
             if (fs.existsSync(inputPath)) fs.unlinkSync(inputPath);
             if (fs.existsSync(silencePath)) fs.unlinkSync(silencePath);
 
