@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>StreamShield Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen font-mono">
+    <div class="bg-gray-800 p-8 rounded-xl shadow-xl max-w-md w-full text-center space-y-4">
+        <h1 class="text-xl font-bold text-green-400">StreamShield Metadata Tool</h1>
+        <input type="file" id="file" accept="video/mp4" class="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-green-500 file:text-gray-950 font-semibold cursor-pointer">
+        <button id="btn" class="w-full bg-green-500 text-gray-950 font-bold py-2 rounded-lg hidden">Traiter la vidéo</button>
+        <p id="status" class="text-xs text-gray-400"></p>
+    </div>
+    <script>
+        const f = document.getElementById('file'), b = document.getElementById('btn'), s = document.getElementById('status');
+        f.onchange = () => { if(f.files.length) b.classList.remove('hidden'); };
+        b.onclick = async () => {
+            const fd = new FormData(); fd.append('video', f.files[0]);
+            s.textContent = "Traitement en cours..."; b.disabled = true;
+            try {
+                const res = await fetch('/process', { method: 'POST', body: fd });
+                if(!res.ok) throw new Error();
+                const blob = await res.blob();
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a'); a.href = url; a.download = f.files[0].name.replace(/\.[^/.]+$/, "") + '_hd.mp4';
+                a.click(); s.textContent = "Terminé ! Téléchargé.";
+            } catch(e) { s.textContent = "Erreur de traitement."; }
+            finally { b.disabled = false; }
+        };
+    </script>
+</body>
+</html>
 
